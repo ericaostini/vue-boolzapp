@@ -71,12 +71,8 @@ i{
 .contact:hover{
     background-color: var(--color-contact-hover);
 }
-.bottom-sidebar{
-    height: calc(100% - 80px);
-    overflow-y: hidden;
-}
-.top-sidebar{
-    height: 80px;
+.main-content{
+    background-image: url("img/mine.jpg");
 }
 .sent{
 
