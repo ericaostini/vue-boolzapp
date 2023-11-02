@@ -74,14 +74,17 @@ i{
 .sent-message{
     background-color: var(--color-sent-message);
     width: 25%;
-    margin: 20px;
-    float: right;
+    position: relative;
+    top: 0;
+    left: 600px;
+    margin-bottom: 20px;
 }
 .received-message{
     background-color: var(--color-white);
     width: 25%;
-    margin: 80px 20px;
-    float: left;
+    position: relative;
+    top: 0;
+    left: 20px;
 }
 .sms{
     height: 80%;

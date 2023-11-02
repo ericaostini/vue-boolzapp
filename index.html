@@ -65,9 +65,9 @@
                             <i class="fa-solid fa-ellipsis-vertical px-2"></i>
                         </div>
                     </div>
-                    <div class="sms" :key="activeIndex">
-                        <div :class = "contacts[activeIndex].messages[activeIndex].status === 'sent' ? 'sent-message' : 'received-message'">
-                            <div>{{contacts[activeIndex].messages[activeIndex].message}}</div>
+                    <div class="sms">
+                        <div v-for="(message, messageIndex) in contacts[activeIndex].messages" :key="messageIndex" :class = "message.status === 'sent' ? 'sent-message' : 'received-message'">
+                            <div>{{message.message}}</div>
                         </div>
                     </div>
                     <div class="write-text d-flex align-items-center">
