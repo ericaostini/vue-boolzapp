@@ -3,11 +3,26 @@
     padding: 0;
     box-sizing: border-box;
 }
-
+body{
+    font-family: 'Lato', sans-serif;
+}
 /* Color Theme Swatches in RGBA
 .color-theme_Boolzapp-screenshot-1-rgba { color: rgba(141, 213, 242, 1); }
 .color-theme_Boolzapp-screenshot-2-rgba { color: rgba(3, 140, 115, 1); }
 .color-theme_Boolzapp-screenshot-3-rgba { color: rgba(212, 242, 182, 1); }
 .color-theme_Boolzapp-screenshot-4-rgba { color: rgba(217, 210, 204, 1); }
 .color-theme_Boolzapp-screenshot-5-rgba { color: rgba(242, 113, 39, 1); } */
+
+:root {
+	--color-white: #ffffff;
+	--color-dark-text: #161012;
+	--color-dark-grey: #6b7376;
+	--color-text-grey: #b6bbc1;
+	--color-headers: #eaeaea;
+	--color-contact-hover: #e9ebeb;
+	--color-light-icons: #b1b1b1;
+	--color-sent-message: #d5f9ba;
+	--color-notification: #8edafc;
+}
+/* background: linear-gradient(180deg, #009688 24.99%, #DCDBD3 25%); */
 
