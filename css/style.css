@@ -71,6 +71,13 @@ i{
 .contact:hover{
     background-color: var(--color-contact-hover);
 }
+.bottom-sidebar{
+    height: calc(100% - 80px);
+    overflow-y: hidden;
+}
+.top-sidebar{
+    height: 80px;
+}
 .sent{
 
 }
