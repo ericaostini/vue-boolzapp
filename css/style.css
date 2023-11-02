@@ -6,6 +6,7 @@
 body{
     font-family: 'Lato', sans-serif;
 }
+
 /* Color Theme Swatches in RGBA
 .color-theme_Boolzapp-screenshot-1-rgba { color: rgba(141, 213, 242, 1); }
 .color-theme_Boolzapp-screenshot-2-rgba { color: rgba(3, 140, 115, 1); }
@@ -23,6 +24,18 @@ body{
 	--color-light-icons: #b1b1b1;
 	--color-sent-message: #d5f9ba;
 	--color-notification: #8edafc;
+    --background: linear-gradient(180deg, #009688 24.99%, #DCDBD3 25%);
 }
-/* background: linear-gradient(180deg, #009688 24.99%, #DCDBD3 25%); */
+
+#app{
+    width: 100%;
+    height: 100vh;
+    background: var(--background);
+}
+.sent{
+
+}
+.received{
+
+}
 
