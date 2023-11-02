@@ -15,7 +15,7 @@
             <div class="row h-100 flex-nowrap">
                 <div class="col-12 col-md-4 side-bar">
                     <div class="row h-100 flex-column flex-nowrap">
-                        <div class="col-12 headers d-flex justify-content-between align-items-center p-2">
+                        <div class="headers d-flex justify-content-between align-items-center p-2">
                             <div class="photos d-flex align-items-end">
                                 <img src="img/avatar_io.jpg" alt="user photo">
                                 <p class="px-2">Erica</p>
@@ -26,22 +26,31 @@
                                 <i class="fa-solid fa-ellipsis-vertical px-2"></i>
                             </div>
                         </div>
-                        <div class="col-12 bell p-2">
-                            <div class="bell-icon d-flex">
-                                <i class="fa-solid fa-bell-slash"></i>
+                        <div class="bell p-2">
+                            <div class="d-flex">
+                                <i class="fa-solid fa-bell-slash bell-icon"></i>
                                 <div class="px-2">
                                     <span class="fa-bolder">Ricevi notifiche di nuovi messaggi </span> <br>
                                     <a href="#">Attiva notifiche desktop</a>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-12 mt-2">
+                        <div class="mt-2">
                             <div class="input-group">
                                 <div class="input-group-text"><i class="fa-solid fa-magnifying-glass"></i></div>
                                 <input type="text" class=" form-control" placeholder="Cerca o inizia nuova chat">
                             </div>
                         </div>
-                        <div class="col-12 overflow-y-auto flex-grow-1 fixed-bug">Contenuto</div>
+                        <hr class="mt-3">
+                        <div class="overflow-y-auto flex-grow-1 fixed-bug">
+                            <div class="photos d-flex align-items-center contact" v-for = "(contact, index) in contacts">
+                                <img :src="contact.avatar" :alt="contact.name">
+                                <p>
+                                    <span>{{contact.name}}</span> <br>
+                                    <span>Ultimo messaggio invitato</span>
+                                </p>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div class="col-12 col-md-8 main-content">
