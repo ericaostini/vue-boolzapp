@@ -33,8 +33,18 @@ body{
     background: var(--background);
     padding: 25px;
 }
+.fixed-bug{
+    height: 0;
+}
 .side-bar{
     background-color: var(--color-white);
+}
+.photos img{
+    height: 50px;
+    border-radius: 50px;
+}
+i{
+    color: var(--color-light-icons);
 }
 .headers{
     background-color: var(--color-headers);
