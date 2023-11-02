@@ -43,7 +43,7 @@
                         </div>
                         <hr class="mt-3">
                         <div class="col-12 overflow-y-auto flex-grow-1 fixed-bug">
-                            <div class="photos d-flex align-items-center contact" v-for = "(contact, index) in contacts">
+                            <div class="photos d-flex align-items-center contact border-bottom" v-for = "(contact, index) in contacts">
                                 <img :src="contact.avatar" :alt="contact.name">
                                 <p>
                                     <span>{{contact.name}}</span> <br>
