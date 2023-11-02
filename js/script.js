@@ -179,6 +179,13 @@ createApp({
         }
     },
     methods: {
-        
-    },
+        displayContact(index){
+            this.activeIndex = index;
+        },
+        nextContact(){
+            if(this.activeIndex === this.contacts.id){
+                return this.activeIndex = this.id
+            }
+        },
+    }
 }).mount("#app")
