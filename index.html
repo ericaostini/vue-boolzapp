@@ -65,13 +65,15 @@
                             <i class="fa-solid fa-ellipsis-vertical px-2"></i>
                         </div>
                     </div>
-                    <div class="messages">
-                        <div class="sent-message">
-                            <span>ciao</span>
+                    <div class="sms" :key="activeIndex">
+                        <div :class = "contacts[activeIndex].messages[activeIndex].status === 'sent' ? 'sent-message' : 'received-message'">
+                            <div>{{contacts[activeIndex].messages[activeIndex].message}}</div>
                         </div>
-                        <div class="received-message">
-                            <span>ciao</span>
-                        </div>
+                    </div>
+                    <div class="write-text d-flex align-items-center">
+                        <i class="fa-regular fa-face-smile px-4 fs-4"></i>
+                        <input type="text" class=" w-75 form-control m-auto" placeholder="Scrivi un messaggio">
+                        <i class="fa-solid fa-microphone px-4 fs-4"></i>
                     </div>
                 </div>
             </div>

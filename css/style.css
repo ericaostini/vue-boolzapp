@@ -71,9 +71,6 @@ i{
 .contact:hover{
     background-color: var(--color-contact-hover);
 }
-.main-content{
-    background-image: url("/img/mine.jpg");
-}
 .sent-message{
     background-color: var(--color-sent-message);
     width: 25%;
@@ -85,5 +82,13 @@ i{
     width: 25%;
     margin: 80px 20px;
     float: left;
+}
+.sms{
+    height: 80%;
+    background-image: url("/img/mine.jpg");
+}
+.write-text{
+    background-color: var(--color-white);
+    padding: 11px;
 }
 

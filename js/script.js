@@ -173,7 +173,8 @@ createApp({
                         }
                     ],
                 }
-            ]
+            ],
+            activeIndex: 0,
             
         }
     },
