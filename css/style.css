@@ -63,6 +63,7 @@ i{
     color: var(--color-dark-grey)
 }
 .headers{
+    height: 80px;
     background-color: var(--color-headers);
 }
 .contact{
@@ -73,25 +74,29 @@ i{
 }
 .sent-message{
     background-color: var(--color-sent-message);
-    width: 25%;
-    position: relative;
-    top: 0;
-    left: 600px;
-    margin-bottom: 20px;
+    margin: 10px 20px;
+    padding: 10px;
+    justify-self: right;
+    width: 30%;
 }
 .received-message{
+    margin: 10px 20px;
+    padding: 10px;
     background-color: var(--color-white);
-    width: 25%;
-    position: relative;
-    top: 0;
-    left: 20px;
+    justify-self: left;
+    width: 30%;
 }
-.sms{
-    height: 80%;
+.main-content{
+    position: relative;
+    height: 100%;
     background-image: url("/img/mine.jpg");
 }
 .write-text{
     background-color: var(--color-white);
+    height: 80px;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
     padding: 11px;
 }
 
