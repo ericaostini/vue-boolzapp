@@ -46,6 +46,18 @@ body{
 i{
     color: var(--color-light-icons);
 }
+.bell{
+    background-color: var(--color-notification);
+}
+.bell-icon i{
+    background-color: var(--color-white);
+    padding: 16px;
+    border-radius: 50px;
+    color: var(--color-notification)
+}
+.bell-icon a{
+    color: var(--color-dark-grey)
+}
 .headers{
     background-color: var(--color-headers);
 }
