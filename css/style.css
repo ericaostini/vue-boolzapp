@@ -33,6 +33,12 @@ body{
     background: var(--background);
     padding: 25px;
 }
+.side-bar{
+    background-color: var(--color-white);
+}
+.headers{
+    background-color: var(--color-headers);
+}
 .sent{
 
 }
