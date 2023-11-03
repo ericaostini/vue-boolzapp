@@ -43,15 +43,17 @@
                         </div>
                         <hr class="mt-3">
                         <div class="col-12 overflow-y-auto flex-grow-1 fixed-bug">
-                            <div v-for = "(contact, index) in contacts" @click = "displayContact(contact.id)" :key= "contact.id" :class = "[contact.visible ? 'd-flex' : 'd-none']">
+                            <div v-for = "(contact, index) in contacts" @click = "displayContact(contact.id)" :key= "contact.id" :class = "[contact.visible ? '' : 'd-none']">
                                 <div :class = "[activeIndex === index ? 'photos contact border-bottom active d-flex justify-content-between' : 'photos contact border-bottom d-flex justify-content-between']">
-                                    <img class = "m-auto" :src="contact.avatar" :alt="contact.name">
-                                    <div class="px-2">
-                                        <strong>{{contact.name}}</strong> <br>
-                                        <small>{{getLastMsg(contact.id)}}</small>
+                                    <div class = "d-flex">
+                                        <img class = "m-auto" :src="contact.avatar" :alt="contact.name">
+                                        <div class="px-2">
+                                            <strong>{{contact.name}}</strong> <br>
+                                            <small>{{getLastMsg(contact.id)}}</small>
+                                        </div>
                                     </div>
+                                    <small>{{lastAccess(contact.id)}}</small>
                                 </div>
-                                <small>{{lastAccess(contact.id)}}</small>
                             </div>
                         </div>
                     </div>
