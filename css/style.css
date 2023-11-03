@@ -79,6 +79,7 @@ i{
     padding: 10px;
     justify-self: right;
     width: 30%;
+    border-radius: 10px;
 }
 .received-message{
     margin: 10px 20px;
@@ -86,6 +87,7 @@ i{
     background-color: var(--color-white);
     justify-self: left;
     width: 30%;
+    border-radius: 10px;
 }
 .main-content{
     position: relative;
@@ -99,5 +101,8 @@ i{
     position: absolute;
     bottom: 0;
     padding: 11px;
+}
+.active{
+    background-color: var(--color-text-grey);
 }
 
