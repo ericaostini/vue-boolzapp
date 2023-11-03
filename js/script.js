@@ -1,5 +1,7 @@
 const {createApp} = Vue;
-const dt = luxon.DateTime
+const DateTime = luxon.DateTime;
+const now = DateTime.now()
+
 createApp({
     data() {
         return {
@@ -192,11 +194,12 @@ createApp({
         lastAccess(id){
             const contact = this.contacts.find((contact) => contact.id === id)
             const lenContact = contact.messages.length;
-            return contact.messages[lenContact -1].date;
+            const data =  contact.messages[lenContact -1].date;
+            return data.substring(11,16)
         },
         addNewMsg(){
             const newMsg = {
-                            date: new Date(),
+                            date: now.setLocale('it').toFormat('F'),
                             message: this.message,
                             status: 'sent'
                         }
@@ -204,7 +207,7 @@ createApp({
             this.message = " ";
             setTimeout(() => {
                 const newMsg = {
-                    date: new Date(),
+                    date: now.setLocale('it').toFormat('F'),
                     message: this.replied,
                     status: 'received'
                 }
