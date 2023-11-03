@@ -178,8 +178,8 @@ createApp({
             ],
             activeIndex: 0,
             message: "",
-            replied: "ok"
-            
+            replied: "ok",
+            checkName: ""
         }
     },
     methods: {
@@ -213,6 +213,19 @@ createApp({
                 }
                 this.activeContact.messages.push(newMsg);
             },1000)
+            },
+            checkNames(){
+                if(this.checkName !== " "){
+                    this.contacts.forEach(contact => {
+                        if(contact.name.includes(this.checkName)){
+                            contact.visible
+                            console.log(contact.visible)
+                        } else {
+                            contact.visible = false
+                            console.log(contact.visible)
+                        }
+                    });
+                }
             }
     },
     computed:{

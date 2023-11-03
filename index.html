@@ -37,14 +37,14 @@
                         </div>
                         <div class="mt-2 px-1">
                             <div class="input-group">
-                                <div class="input-group-text"><i class="fa-solid fa-magnifying-glass"></i></div>
-                                <input type="text" class=" form-control" placeholder="Cerca o inizia nuova chat">
+                                <div class="input-group-text"><i @click= "checkNames" class="fa-solid fa-magnifying-glass"></i></div>
+                                <input type="text" v-model = "checkName" class=" form-control" placeholder="Cerca o inizia nuova chat">
                             </div>
                         </div>
                         <hr class="mt-3">
                         <div class="col-12 overflow-y-auto flex-grow-1 fixed-bug">
-                            <div v-for = "(contact, index) in contacts" @click = "displayContact(contact.id)" :key= "contact.id" :class = "[activeIndex === index ? 'photos contact border-bottom active d-flex justify-content-between' : 'photos contact border-bottom d-flex justify-content-between' ]">
-                                <div class="d-flex">
+                            <div v-for = "(contact, index) in contacts" @click = "displayContact(contact.id)" :key= "contact.id" :class = "[contact.visible ? 'd-flex' : 'd-none']">
+                                <div :class = "[activeIndex === index ? 'photos contact border-bottom active d-flex justify-content-between' : 'photos contact border-bottom d-flex justify-content-between']">
                                     <img class = "m-auto" :src="contact.avatar" :alt="contact.name">
                                     <div class="px-2">
                                         <strong>{{contact.name}}</strong> <br>
