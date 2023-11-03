@@ -43,12 +43,17 @@
                         </div>
                         <hr class="mt-3">
                         <div class="col-12 overflow-y-auto flex-grow-1 fixed-bug">
-                            <div v-for = "(contact, index) in contacts" @click = "displayContact(contact.id)" :key= "contact.id" :class = "[activeIndex === index ? 'photos d-flex contact border-bottom active' : 'photos d-flex contact border-bottom' ]">
-                                <img :src="contact.avatar" :alt="contact.name">
-                                <p class="px-2">
-                                    <span>{{contact.name}}</span> <br>
-                                    <span>Ultimo messaggio invitato</span>
-                                </p>
+                            <div v-for = "(contact, index) in contacts" @click = "displayContact(contact.id)" :key= "contact.id" :class = "[activeIndex === index ? 'photos contact border-bottom active d-flex' : 'photos contact border-bottom d-flex' ]">
+                                <div class="d-flex">
+                                    <img :src="contact.avatar" :alt="contact.name">
+                                    <p class="px-2">
+                                        <span>{{contact.name}}</span> <br>
+                                        <span>{{getLastMsg(contact.id)}}</span>
+                                    </p>
+                                </div>
+                                <!-- <div>
+                                    <p>{{lastAccess(contact.id)}}</p>
+                                </div> -->
                             </div>
                         </div>
                     </div>
@@ -56,10 +61,10 @@
                 <div class="col-12 col-md-8 main-content">
                     <div class="headers d-flex justify-content-between align-items-center p-2">
                         <div class="photos d-flex align-items-end">
-                            <img :src="contacts[activeIndex].avatar" alt="user photo">
+                            <img :src="activeContact.avatar" alt="user photo">
                             <div class="mx-2">
-                                <strong>{{contacts[activeIndex].name}}</strong> <br>
-                                <small>Ultimo accesso: {{contacts[activeIndex].messages[contacts[activeIndex].messages.length - 1].date}}</small>
+                                <strong>{{activeContact.name}}</strong> <br>
+                                <small>Ultimo accesso: {{activeContact.messages[activeContact.messages.length - 1].date}}</small>
                             </div>
                         </div>
                         <div>
@@ -68,15 +73,15 @@
                             <i class="fa-solid fa-ellipsis-vertical px-2"></i>
                         </div>
                     </div>
-                    <div class="sms" v-for="(message, messageIndex) in contacts[activeIndex].messages" :key="messageIndex">
+                    <div class="sms" v-for="(message, messageIndex) in activeContact.messages" :key="messageIndex">
                         <div class="d-grid">
                             <p :class = "message.status === 'sent' ? 'sent-message' : 'received-message'">{{message.message}}</p>
                         </div>
                     </div>
                     <div class="write-text d-flex align-items-center">
                         <i class="fa-regular fa-face-smile px-4 fs-4"></i>
-                        <input type="text" class=" w-75 form-control m-auto" placeholder="Scrivi un messaggio" v-model="newMsg" @keyup-enter = "addNewMsg(index)">
-                        <i class="fa-solid fa-microphone px-4 fs-4"></i>
+                        <input type="text" class=" w-75 form-control m-auto" placeholder="Scrivi un messaggio" v-model = "message" @keyup-enter = "addNewMsg()">
+                        <button @click = "addNewMsg()"><i class="fa-solid fa-microphone px-4 fs-4"></i></button>
                     </div>
                 </div>
             </div>
@@ -84,7 +89,7 @@
 
     </div>
 
-
+    <script src=" https://cdn.jsdelivr.net/npm/luxon@3.4.3/build/global/luxon.min.js "></script>
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <script src="js/script.js"></script>
 </body>

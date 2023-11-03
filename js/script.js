@@ -1,5 +1,5 @@
 const {createApp} = Vue;
-
+const dt = luxon.DateTime
 createApp({
     data() {
         return {
@@ -175,7 +175,8 @@ createApp({
                 }
             ],
             activeIndex: 0,
-            newMsg: ""
+            message: "",
+            replied: "ok"
             
         }
     },
@@ -183,20 +184,37 @@ createApp({
         displayContact(id){
             this.activeIndex = this.contacts.findIndex((contact) => contact.id === id);
         },
-        addNewMsg(index){
-            const newMsg = [
-                        {
-                            date: '10/01/2020 15:30:55',
-                            message: this.newMsg,
-                            status: 'send'
-                        },
-                        {
-                            date: '10/01/2020 15:50:00',
-                            message: 'ok',
-                            status: 'received'
-                        },
-                ]
-                this.contacts[i].messages.push(newMsg);
-            }
+        getLastMsg(id){
+            const contact = this.contacts.find((contact) => contact.id === id)
+            const lenContact = contact.messages.length;
+            return contact.messages[lenContact -1].message;
         },
+        lastAccess(id){
+            const contact = this.contacts.find((contact) => contact.id === id)
+            const lenContact = contact.messages.length;
+            return contact.messages[lenContact -1].date;
+        },
+        addNewMsg(){
+            const newMsg = {
+                            date: new Date(),
+                            message: this.message,
+                            status: 'sent'
+                        }
+            this.activeContact.messages.push(newMsg);
+            this.message = " ";
+            setTimeout(() => {
+                const newMsg = {
+                    date: new Date(),
+                    message: this.replied,
+                    status: 'received'
+                }
+                this.activeContact.messages.push(newMsg);
+            },1000)
+            }
+    },
+    computed:{
+        activeContact(){
+            return this.contacts[this.activeIndex]
+        }
+    }
 }).mount("#app")
