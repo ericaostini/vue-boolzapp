@@ -81,7 +81,21 @@
                     <div class="sms" v-for="(message, messageIndex) in activeContact.messages" :key="messageIndex">
                         <div class="d-grid">
                             <div :class = "message.status === 'sent' ? 'sent-message' : 'received-message'">
-                                <span>{{message.message}}</span> <br>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <span>{{message.message}}</span> <br>
+                                    <nav>
+                                        <ul class="drop-down closed">
+                                        <li><a href="#" class="nav-button"><i class="fa-solid fa-chevron-down"></i></a></li>
+                                        <li><a href="#">Message info</a></li>
+                                        <li><a href="#">Delete message</a></li>
+                                        </ul>
+                                    </nav>
+  
+  
+
+
+                                      
+                                </div>
                                 <!-- <small class="float-end">{{data.message}}</small> -->
                             </div>
                         </div>

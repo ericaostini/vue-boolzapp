@@ -179,7 +179,8 @@ createApp({
             activeIndex: 0,
             message: "",
             replied: "ok",
-            checkName: ""
+            checkName: "",
+            clickMessage: null
         }
     },
     methods: {
@@ -227,7 +228,10 @@ createApp({
                     this.contacts
                 }
                 this.checkName = ""
-
+            },
+            dropDown(){
+                const menu = document.querySelector('.nav-button')
+                    this.menu.classList.toggle('closed')
             }
     },
     computed:{

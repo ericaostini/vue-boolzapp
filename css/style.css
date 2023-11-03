@@ -110,4 +110,25 @@ i{
 .active:hover{
     background-color: var(--color-text-grey);
 }
+nav .drop-down {
+    list-style: none; 
+    overflow: hidden;
+    height: 120px;
+    width: 200px;
+    margin: 0 auto;
+    padding: 0;
+    text-align: center;
+    -webkit-transition: height 0.3s ease;
+            transition: height 0.3s ease;
+  }
+  nav .drop-down.closed {
+    height: 30px;
+    width: 30px;
+  }
+nav .drop-down li a {
+    display: block;
+    color:var(--color-dark-text);
+    text-decoration: none;
+    padding: 5px;
+}
 
