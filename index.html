@@ -83,18 +83,14 @@
                             <div :class = "message.status === 'sent' ? 'sent-message' : 'received-message'">
                                 <div class="d-flex justify-content-between align-items-center">
                                     <span>{{message.message}}</span> <br>
-                                    <nav>
-                                        <ul class="drop-down closed">
-                                        <li><a href="#" class="nav-button"><i class="fa-solid fa-chevron-down"></i></a></li>
-                                        <li><a href="#">Message info</a></li>
-                                        <li><a href="#">Delete message</a></li>
+                                    <div class="dropdown">
+                                        <button class="btn" @click="dropDown"><i class="fa-solid fa-chevron-down dropBtn"></i></button>
+                                        <div class="dropdown-content" id="dropdown">
+                                            <a href="#">Message info</a> <br>
+                                            <a href="#">Delete message</a>
+                                        </div>
                                         </ul>
-                                    </nav>
-  
-  
-
-
-                                      
+                                    </div>
                                 </div>
                                 <!-- <small class="float-end">{{data.message}}</small> -->
                             </div>

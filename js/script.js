@@ -230,8 +230,7 @@ createApp({
                 this.checkName = ""
             },
             dropDown(){
-                const menu = document.querySelector('.nav-button')
-                    this.menu.classList.toggle('closed')
+                document.getElementById("dropdown").classList.toggle("show")
             }
     },
     computed:{
