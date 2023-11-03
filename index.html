@@ -56,10 +56,10 @@
                 <div class="col-12 col-md-8 main-content">
                     <div class="headers d-flex justify-content-between align-items-center p-2">
                         <div class="photos d-flex align-items-end">
-                            <img src="img/avatar_io.jpg" alt="user photo">
+                            <img :src="contacts[activeIndex].avatar" alt="user photo">
                             <div class="mx-2">
-                                <strong>Nome</strong> <br>
-                                <small>Ultimo accesso</small>
+                                <strong>{{contacts[activeIndex].name}}</strong> <br>
+                                <small>Ultimo accesso: {{contacts[activeIndex].messages[contacts[activeIndex].messages.length - 1].date}}</small>
                             </div>
                         </div>
                         <div>

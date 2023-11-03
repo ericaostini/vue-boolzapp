@@ -68,7 +68,8 @@ i{
 }
 .contact{
     border-bottom: var(--color-dark-grey);
-    padding: 8px;
+    padding-top: 10px;
+    padding-left: 10px;
 }
 .contact:hover{
     background-color: var(--color-contact-hover);
@@ -103,6 +104,9 @@ i{
     padding: 11px;
 }
 .active{
+    background-color: var(--color-text-grey);
+}
+.active:hover{
     background-color: var(--color-text-grey);
 }
 
