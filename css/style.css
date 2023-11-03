@@ -37,6 +37,7 @@ body{
     height: 0;
 }
 .side-bar{
+    width: 40%;
     background-color: var(--color-white);
 }
 .photos img{

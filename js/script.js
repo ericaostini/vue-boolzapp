@@ -218,14 +218,16 @@ createApp({
                 if(this.checkName !== " "){
                     this.contacts.forEach(contact => {
                         if(contact.name.includes(this.checkName)){
-                            contact.visible
-                            console.log(contact.visible)
+                            contact.visible = true
                         } else {
                             contact.visible = false
-                            console.log(contact.visible)
                         }
                     });
+                } else{
+                    this.contacts
                 }
+                this.checkName = ""
+
             }
     },
     computed:{
