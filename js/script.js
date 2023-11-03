@@ -175,6 +175,7 @@ createApp({
                 }
             ],
             activeIndex: 0,
+            newMsg: ""
             
         }
     },
@@ -182,10 +183,23 @@ createApp({
         displayContact(index){
             this.activeIndex = index;
         },
-        nextContact(){
-            if(this.activeIndex === this.contacts.id){
-                return this.activeIndex = this.id
-            }
+        addNewMsg(index){
+            this.lastId++
+            const newMsg = {
+                    messages: [
+                        {
+                            date: '10/01/2020 15:30:55',
+                            message: this.newMsg,
+                            status: 'send'
+                        },
+                        {
+                            date: '10/01/2020 15:50:00',
+                            message: 'ok',
+                            status: 'received'
+                        }
+                    ],
+                }
+            this.contacts[i].push(newMsg);
         },
     }
 }).mount("#app")

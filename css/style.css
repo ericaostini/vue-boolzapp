@@ -68,6 +68,7 @@ i{
 }
 .contact{
     border-bottom: var(--color-dark-grey);
+    padding: 8px;
 }
 .contact:hover{
     background-color: var(--color-contact-hover);
@@ -92,8 +93,8 @@ i{
     background-image: url("/img/mine.jpg");
 }
 .write-text{
-    background-color: var(--color-white);
-    height: 80px;
+    background-color: var(--color-headers);
+    height: 70px;
     width: 100%;
     position: absolute;
     bottom: 0;
