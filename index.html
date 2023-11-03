@@ -43,7 +43,7 @@
                         </div>
                         <hr class="mt-3">
                         <div class="col-12 overflow-y-auto flex-grow-1 fixed-bug">
-                            <div v-for = "(contact, index) in contacts" @click = "displayContact(index)" :class = "[activeIndex === index ? 'photos d-flex contact border-bottom active' : 'photos d-flex contact border-bottom' ]">
+                            <div v-for = "(contact, index) in contacts" @click = "displayContact(contact.id)" :key= "contact.id" :class = "[activeIndex === index ? 'photos d-flex contact border-bottom active' : 'photos d-flex contact border-bottom' ]">
                                 <img :src="contact.avatar" :alt="contact.name">
                                 <p class="px-2">
                                     <span>{{contact.name}}</span> <br>

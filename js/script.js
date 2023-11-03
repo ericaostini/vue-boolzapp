@@ -180,13 +180,11 @@ createApp({
         }
     },
     methods: {
-        displayContact(index){
-            this.activeIndex = index;
+        displayContact(id){
+            this.activeIndex = this.contacts.findIndex((contact) => contact.id === id);
         },
         addNewMsg(index){
-            this.lastId++
-            const newMsg = {
-                    messages: [
+            const newMsg = [
                         {
                             date: '10/01/2020 15:30:55',
                             message: this.newMsg,
@@ -196,10 +194,9 @@ createApp({
                             date: '10/01/2020 15:50:00',
                             message: 'ok',
                             status: 'received'
-                        }
-                    ],
-                }
-            this.contacts[i].push(newMsg);
+                        },
+                ]
+                this.contacts[i].messages.push(newMsg);
+            }
         },
-    }
 }).mount("#app")
