@@ -238,9 +238,10 @@ createApp({
                 subMenu[id].classList.toggle("open-menu")
             },
             deleteMsg(id){
-                    const index = this.activeContact.messages.findIndex((messageIndex)=> messageIndex.id === id);
-                    this.clickMessage = this.messageIndex;
-                    this.activeContact.messages[this.clickMessage].splice(index, 1)
+                    this.clickMessage = id
+                    this.activeContact.messages.splice(id, 1)
+                    let subMenu = document.getElementsByClassName("sub-menu-wrap");
+                    subMenu[id].classList.remove("open-menu")
             }
     },
     computed:{
