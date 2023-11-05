@@ -113,8 +113,8 @@ i{
 .sub-menu-wrap{
     position: absolute;
     width: 150px;
-    margin-left: 35px;
-    margin-top: 140px;
+    margin-left: 120px;
+    margin-top: 100px;
     max-height: 0px;
     overflow: hidden;
 }

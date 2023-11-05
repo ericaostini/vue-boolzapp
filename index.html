@@ -83,7 +83,7 @@
                             <div :class = "message.status === 'sent' ? 'sent-message' : 'received-message'">
                                 <div class="d-flex justify-content-between align-items-center">
                                     <span>{{message.message}}</span> <br>
-                                    <button class="btn"><i class="fa-solid fa-chevron-down" @click = "dropDown"></i></button>
+                                    <button class="btn"><i class="fa-solid fa-chevron-down" @click = "dropDown(messageIndex)"></i></button>
                                     <div class="sub-menu-wrap" id="subMenu">
                                         <div class="sub-menu">
                                             <small class="myselect">Message info</small> <br>
