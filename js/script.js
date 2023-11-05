@@ -186,7 +186,6 @@ createApp({
     methods: {
         displayContact(id){
             this.activeIndex = this.contacts.findIndex((contact) => contact.id === id);
-            console.log(this.activeIndex)
         },
         getLastMsg(id){
             const contact = this.contacts.find((contact) => contact.id === id)
@@ -232,9 +231,7 @@ createApp({
             },
             dropDown(id){
                 this.clickMessage = id
-                console.log(this.clickMessage)
                 let subMenu = document.getElementsByClassName("sub-menu-wrap");
-                console.log(subMenu)
                 subMenu[id].classList.toggle("open-menu")
             },
             deleteMsg(id){
