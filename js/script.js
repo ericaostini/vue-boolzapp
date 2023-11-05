@@ -218,7 +218,7 @@ createApp({
             checkNames(){
                 if(this.checkName !== " "){
                     this.contacts.forEach(contact => {
-                        if(contact.name.includes(this.checkName)){
+                        if(contact.name.startsWith(this.checkName)){
                             contact.visible = true
                         } else {
                             contact.visible = false
@@ -230,7 +230,13 @@ createApp({
                 this.checkName = ""
             },
             dropDown(){
-                document.getElementById("dropdown").classList.toggle("show")
+                let subMenu = document.getElementById("subMenu");
+                subMenu.classList.toggle("open-menu")
+            },
+            deleteMsg(id){
+                    const index = this.activeContact.messages.findIndex((messageIndex)=> messageIndex.id === id);
+                    this.clickMessage = this.messageIndex;
+                    this.activeContact.messages[this.clickMessage].splice(index, 1)
             }
     },
     computed:{

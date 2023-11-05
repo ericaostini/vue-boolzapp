@@ -115,6 +115,11 @@ i{
     width: 150px;
     margin-left: 35px;
     margin-top: 140px;
+    max-height: 0px;
+    overflow: hidden;
+}
+.sub-menu-wrap.open-menu{
+    max-height: 100px;
 }
 .sub-menu{
     background-color: var(--color-white);
