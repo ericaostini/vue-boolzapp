@@ -110,23 +110,17 @@ i{
 .active:hover{
     background-color: var(--color-text-grey);
 }
-.dropdown{
-    position: relative;
-    display: inline-block;
-}
-.dropdown-content{
-    display: none;
+.sub-menu-wrap{
     position: absolute;
-    top: 0;
+    width: 150px;
+    margin-left: 35px;
+    margin-top: 140px;
+}
+.sub-menu{
     background-color: var(--color-white);
-    min-width: 160px;
-    z-index: 1;
+    padding: 20px;
 }
-.dropdown-content a{
-    text-decoration: none;
-    color: var(--color-dark-text);
-}
-.show{
-    display: block;
+.myselect:hover{
+    text-decoration: underline;
 }
 
