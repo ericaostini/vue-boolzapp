@@ -216,6 +216,9 @@ createApp({
                 }
                 this.activeContact.messages.push(newMsg);
             },1000)
+            this.$nextTick(() => {
+                this.$refs.messages[this.$refs.messages.length -1].scrollIntoView({ behavior: "smooth", block: "end", inline: "nearest" });
+            })
             },
             // checkNames(){
             //     this.contacts.forEach(contact => {

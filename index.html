@@ -58,47 +58,50 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-12 col-md-8 main-content d-md-block" :class = "{'d-none' : !showChat}">
-                    <div class="write-text d-flex align-items-center">
-                        <i class="fa-regular fa-face-smile px-4 fs-4"></i>
-                        <input type="text" class=" w-75 form-control m-auto" placeholder="Scrivi un messaggio" v-model.trim = "message" @keyup.enter = "addNewMsg()">
-                        <i class="fa-regular fa-paper-plane px-4" @click = "addNewMsg()"></i>
-                    </div>
-                    <div class="headers d-flex justify-content-between align-items-center p-2">
-                        <div class="photos d-flex align-items-end">
-                            <img :src="activeContact.avatar" alt="user photo">
-                            <div class="mx-2">
-                                <strong>{{activeContact.name}}</strong> <br>
-                                <small>Ultimo accesso: {{activeContact.messages[activeContact.messages.length - 1].date}}</small>
+                <div class="main-content d-md-block" :class = "{'d-none' : !showChat}">
+                    <div class="row g-0 h-100 flex-column flex-nowrap">
+                        <div class="headers col-12 d-flex justify-content-between align-items-center p-2">
+                            <div class="photos d-flex align-items-end">
+                                <img :src="activeContact.avatar" alt="user photo">
+                                <div class="mx-2">
+                                    <strong>{{activeContact.name}}</strong> <br>
+                                    <small>Ultimo accesso: {{activeContact.messages[activeContact.messages.length - 1].date}}</small>
+                                </div>
+                            </div>
+                            <div>
+                                <i class="fa-solid fa-arrow-left-long" @click = "showChat = false"></i>
+                                <i class="fa-solid fa-magnifying-glass px-2"></i>
+                                <i class="fa-solid fa-paperclip px-2"></i>
+                                <i class="fa-solid fa-ellipsis-vertical px-2"></i>
                             </div>
                         </div>
-                        <div>
-                            <i class="fa-solid fa-arrow-left-long" @click = "showChat = false"></i>
-                            <i class="fa-solid fa-magnifying-glass px-2"></i>
-                            <i class="fa-solid fa-paperclip px-2"></i>
-                            <i class="fa-solid fa-ellipsis-vertical px-2"></i>
-                        </div>
-                    </div>
-                    <div class="sms" ref = "messages" v-for="(message, messageIndex) in activeContact.messages" :key="messageIndex">
-                        <div class="d-grid">
-                            <div :class = "message.status === 'sent' ? 'sent-message' : 'received-message'">
-                                <div class="d-flex justify-content-between align-items-center">
-                                    <span>{{message.message}}</span> <br>
-                                    <button class="btn"><i class="fa-solid fa-chevron-down" @click = "dropDown(messageIndex)"></i></button>
-                                    <div class="sub-menu-wrap" id="subMenu">
-                                        <div class="sub-menu">
-                                            <small class="myselect">Message info</small> <br>
-                                            <small class="myselect" @click = "deleteMsg(messageIndex)">Delete message</small>
+                        <div class="col-12 flex-grow-1 fixed-bug overflow-y-auto">
+                            <div v-for="(message, messageIndex) in activeContact.messages" :key="messageIndex" ref = "messages">
+                                <div class="d-grid">
+                                    <div :class = "message.status === 'sent' ? 'sent-message' : 'received-message'">
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <span>{{message.message}}</span> <br>
+                                            <button class="btn"><i class="fa-solid fa-chevron-down" @click = "dropDown(messageIndex)"></i></button>
+                                            <div class="sub-menu-wrap" id="subMenu">
+                                                <div class="sub-menu">
+                                                    <small class="myselect">Message info</small> <br>
+                                                    <small class="myselect" @click = "deleteMsg(messageIndex)">Delete message</small>
+                                                </div>
+        
+                                            </div>
                                         </div>
-
+                                        <!-- <small class="float-end">{{data.message}}</small> -->
                                     </div>
                                 </div>
-                                <!-- <small class="float-end">{{data.message}}</small> -->
                             </div>
                         </div>
+                        <div class="col-12 write-text d-flex align-items-center">
+                            <i class="fa-regular fa-face-smile px-4 fs-4"></i>
+                            <input type="text" class=" w-75 form-control m-auto" placeholder="Scrivi un messaggio" v-model.trim = "message" @keyup.enter = "addNewMsg()">
+                            <i class="fa-regular fa-paper-plane px-4" @click = "addNewMsg()"></i>
                         </div>
                     </div>
-                </div>
+                    </div>
             </div>
         </div>
 
