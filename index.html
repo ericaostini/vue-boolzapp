@@ -13,7 +13,7 @@
     <div id="app">
         <div class="container h-100">
             <div class="h-100 flex-nowrap d-flex">
-                <div class="side-bar">
+                <div class="side-bar d-md-block" :class = "{'d-none' : showChat}">
                     <div class="row g-0 h-100 flex-column flex-nowrap">
                         <div class="col-12 headers d-flex justify-content-between align-items-center p-2">
                             <div class="photos d-flex align-items-end">
@@ -37,14 +37,14 @@
                         </div>
                         <div class="mt-2 px-1">
                             <div class="input-group">
-                                <div class="input-group-text"><i @click= "checkNames" class="fa-solid fa-magnifying-glass"></i></div>
-                                <input type="text" v-model = "checkName" class=" form-control" placeholder="Cerca o inizia nuova chat" @keyup = "checkNames">
+                                <div class="input-group-text"><i @click= "filterContact" class="fa-solid fa-magnifying-glass"></i></div>
+                                <input type="text" v-model.trim = "checkName" class=" form-control" placeholder="Cerca o inizia nuova chat">
                             </div>
                         </div>
                         <hr class="mt-3">
                         <div class="col-12 overflow-y-auto flex-grow-1 fixed-bug">
-                            <div v-for = "(contact, index) in contacts" @click = "displayContact(contact.id)" :key= "contact.id">
-                                <div :class = "[activeIndex === index ? 'photos contact border-bottom active d-flex justify-content-between' : 'photos contact border-bottom d-flex justify-content-between']" v-if = "contact.visible">
+                            <div v-for = "(contact, index) in filterContact" @click = "displayContact(contact.id)" :key= "contact.id">
+                                <div :class = "[activeIndex === index ? 'photos contact border-bottom active d-flex justify-content-between' : 'photos contact border-bottom d-flex justify-content-between']">
                                     <div class = "d-flex">
                                         <img class = "m-auto" :src="contact.avatar" :alt="contact.name">
                                         <div class="px-2">
@@ -58,10 +58,10 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-12 col-md-8 main-content">
+                <div class="col-12 col-md-8 main-content d-md-block" :class = "{'d-none' : !showChat}">
                     <div class="write-text d-flex align-items-center">
                         <i class="fa-regular fa-face-smile px-4 fs-4"></i>
-                        <input type="text" class=" w-75 form-control m-auto" placeholder="Scrivi un messaggio" v-model = "message" @keyup.enter = "addNewMsg()">
+                        <input type="text" class=" w-75 form-control m-auto" placeholder="Scrivi un messaggio" v-model.trim = "message" @keyup.enter = "addNewMsg()">
                         <i class="fa-regular fa-paper-plane px-4" @click = "addNewMsg()"></i>
                     </div>
                     <div class="headers d-flex justify-content-between align-items-center p-2">
@@ -73,12 +73,13 @@
                             </div>
                         </div>
                         <div>
+                            <i class="fa-solid fa-arrow-left-long" @click = "showChat = false"></i>
                             <i class="fa-solid fa-magnifying-glass px-2"></i>
                             <i class="fa-solid fa-paperclip px-2"></i>
                             <i class="fa-solid fa-ellipsis-vertical px-2"></i>
                         </div>
                     </div>
-                    <div class="sms" v-for="(message, messageIndex) in activeContact.messages" :key="messageIndex">
+                    <div class="sms" ref = "messages" v-for="(message, messageIndex) in activeContact.messages" :key="messageIndex">
                         <div class="d-grid">
                             <div :class = "message.status === 'sent' ? 'sent-message' : 'received-message'">
                                 <div class="d-flex justify-content-between align-items-center">

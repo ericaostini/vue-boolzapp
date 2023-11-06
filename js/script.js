@@ -180,12 +180,14 @@ createApp({
             message: "",
             replied: "ok",
             checkName: "",
-            clickMessage: null
+            clickMessage: null,
+            showChat: false
         }
     },
     methods: {
         displayContact(id){
             this.activeIndex = this.contacts.findIndex((contact) => contact.id === id);
+            this.showChat = true;
         },
         getLastMsg(id){
             const contact = this.contacts.find((contact) => contact.id === id)
@@ -215,15 +217,15 @@ createApp({
                 this.activeContact.messages.push(newMsg);
             },1000)
             },
-            checkNames(){
-                this.contacts.forEach(contact => {
-                    if(!contact.name.includes(this.checkName)){
-                        contact.visible = false
-                    } else {
-                        contact.visible = true
-                    }
-                });
-            },
+            // checkNames(){
+            //     this.contacts.forEach(contact => {
+            //         if(!contact.name.includes(this.checkName)){
+            //             contact.visible = false
+            //         } else {
+            //             contact.visible = true
+            //         }
+            //     });
+            // },
             dropDown(id){
                 this.clickMessage = id
                 let subMenu = document.getElementsByClassName("sub-menu-wrap");
@@ -239,6 +241,9 @@ createApp({
     computed:{
         activeContact(){
             return this.contacts[this.activeIndex]
+        },
+        filterContact(){
+            return this.contacts.filter((contact) => contact.name.toLowerCase().includes(this.checkName))
         }
     }
 }).mount("#app")
