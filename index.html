@@ -98,7 +98,8 @@
                         <div class="col-12 write-text d-flex align-items-center">
                             <i class="fa-regular fa-face-smile px-4 fs-4"></i>
                             <input type="text" class=" w-75 form-control m-auto" placeholder="Scrivi un messaggio" v-model.trim = "message" @keyup.enter = "addNewMsg()">
-                            <i class="fa-regular fa-paper-plane px-4" @click = "addNewMsg()"></i>
+                            <i class="fa-solid fa-microphone px-4" v-if = "this.message === ''"></i>
+                            <i class="fa-regular fa-paper-plane px-4" @click = "addNewMsg()" v-else></i>
                         </div>
                     </div>
                     </div>
