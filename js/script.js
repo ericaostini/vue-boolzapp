@@ -216,18 +216,13 @@ createApp({
             },1000)
             },
             checkNames(){
-                if(this.checkName !== " "){
-                    this.contacts.forEach(contact => {
-                        if(contact.name.startsWith(this.checkName)){
-                            contact.visible = true
-                        } else {
-                            contact.visible = false
-                        }
-                    });
-                } else{
-                    this.contacts
-                }
-                this.checkName = ""
+                this.contacts.forEach(contact => {
+                    if(!contact.name.includes(this.checkName)){
+                        contact.visible = false
+                    } else {
+                        contact.visible = true
+                    }
+                });
             },
             dropDown(id){
                 this.clickMessage = id
