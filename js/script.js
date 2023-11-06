@@ -208,7 +208,11 @@ createApp({
                             message: this.message,
                             status: 'sent'
                         }
-            this.activeContact.messages.push(newMsg);
+            if (this.message === ""){
+                return
+            } else{
+                this.activeContact.messages.push(newMsg);
+            }
             this.message = " ";
             this.randomResp = () => this.shortAnswers[Math.floor(Math.random() * this.shortAnswers.length)]
             setTimeout(() => {
@@ -220,7 +224,7 @@ createApp({
                 this.activeContact.messages.push(newMsg);
             },1000)
             this.$nextTick(() => {
-                this.$refs.messages[this.$refs.messages.length -1].scrollIntoView({ behavior: "smooth", block: "end", inline: "nearest" });
+                this.$refs.messages[this.$refs.messages.length -1].scrollIntoView({ behavior: "smooth", block: "end", inline: "end" });
             })
             },
             // checkNames(){
