@@ -178,10 +178,12 @@ createApp({
             ],
             activeIndex: 0,
             message: "",
-            replied: "ok",
+            replied: "",
             checkName: "",
             clickMessage: null,
-            showChat: false
+            showChat: false,
+            shortAnswers: ["Ok, va bene", "Ciao", "Buonagiornata", "Notte"],
+            randomNumb: 0
         }
     },
     methods: {
@@ -208,10 +210,11 @@ createApp({
                         }
             this.activeContact.messages.push(newMsg);
             this.message = " ";
+            this.randomResp = () => this.shortAnswers[Math.floor(Math.random() * this.shortAnswers.length)]
             setTimeout(() => {
                 const newMsg = {
                     date: now.setLocale('it').toFormat('F'),
-                    message: this.replied,
+                    message: this.randomResp(),
                     status: 'received'
                 }
                 this.activeContact.messages.push(newMsg);
@@ -239,7 +242,7 @@ createApp({
                     this.activeContact.messages.splice(id, 1)
                     let subMenu = document.getElementsByClassName("sub-menu-wrap");
                     subMenu[id].classList.remove("open-menu")
-            }
+            },
     },
     computed:{
         activeContact(){
