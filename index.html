@@ -21,6 +21,7 @@
                                 <p class="px-2">Erica</p>
                             </div>
                             <div>
+                                <i class="fa-solid fa-circle-half-stroke" @click = "darkMode = true"></i>
                                 <i class="fa-solid fa-circle-notch px-2"></i>
                                 <i class="fa-solid fa-message px-2"></i>
                                 <i class="fa-solid fa-ellipsis-vertical px-2"></i>
@@ -79,18 +80,17 @@
                             <div v-for="(message, messageIndex) in activeContact.messages" :key="messageIndex" ref = "messages">
                                 <div class="d-grid">
                                     <div :class = "message.status === 'sent' ? 'sent-message' : 'received-message'">
-                                        <div class="d-flex justify-content-between align-items-center">
+                                        <div class="d-flex justify-content-between align-items-center position-relative">
                                             <span>{{message.message}}</span> <br>
-                                            <button class="btn"><i class="fa-solid fa-chevron-down" @click = "dropDown(messageIndex)"></i></button>
+                                            <button class="btn" @click = "dropDown(messageIndex)"><i class="fa-solid fa-chevron-down" ></i></button>
                                             <div class="sub-menu-wrap" id="subMenu">
                                                 <div class="sub-menu">
                                                     <small class="myselect">Message info</small> <br>
                                                     <small class="myselect" @click = "deleteMsg(messageIndex)">Delete message</small>
                                                 </div>
-        
                                             </div>
+                                            <!-- <small class="mydata">{{message.date}}</small> -->
                                         </div>
-                                        <!-- <small class="float-end">{{data.message}}</small> -->
                                     </div>
                                 </div>
                             </div>

@@ -1,5 +1,9 @@
 # Boolzapp
 
+Creazione clone app Whatsapp web con l'utilizzo dei linguaggi di programmazione HTML, CSS e JavaScript
+
+![homepage](/img/Screenshot%202024-01-31%20alle%2011.57.45.png)
+
 ## General 
 - font: **Lato**
 - color: **:root**

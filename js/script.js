@@ -183,7 +183,8 @@ createApp({
             clickMessage: null,
             showChat: false,
             shortAnswers: ["Ok, va bene", "Ciao", "Buonagiornata", "Notte"],
-            randomNumb: 0
+            randomNumb: 0,
+            darkMode: false
         }
     },
     methods: {
@@ -246,7 +247,7 @@ createApp({
                     this.activeContact.messages.splice(id, 1)
                     let subMenu = document.getElementsByClassName("sub-menu-wrap");
                     subMenu[id].classList.remove("open-menu")
-            },
+            }
     },
     computed:{
         activeContact(){
@@ -254,6 +255,6 @@ createApp({
         },
         filterContact(){
             return this.contacts.filter((contact) => contact.name.toLowerCase().includes(this.checkName))
-        }
+        },
     }
 }).mount("#app")
